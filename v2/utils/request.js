@@ -1,8 +1,9 @@
-import { HEADER, AUTHORIZE_PAGE } from './../config.js';
+import { HEADER, AUTHORIZE_PAGE_URL } from './../config.js';
 /**
  * 发送请求
+ * errorBack 是否需要返回错误
  */
-export default function request(api, method, data, error) {
+export default function request(api, method, data, errorBack) {
   let baseUrl = getApp().globalData.baseUrl, header = HEADER;
 
   if (getApp().globalData.token) header.token = getApp().globalData.token;
@@ -30,14 +31,14 @@ export default function request(api, method, data, error) {
               getApp().globalData.token = '';
               wx.clearStorageSync();
               wx.reLaunch({
-                url: AUTHORIZE_PAGE
+                  url: AUTHORIZE_PAGE_URL
               })
             })
           } else {
-              if (error == true)
+              if (errorBack == true)
                   reject(res.data);
               else
-                  res.data.m? res.data.m.length < 6? getApp().error(res.data.m): getApp().text(res.data.m): reject(res.data);
+                  res.data.m? res.data.m.length < 6? getApp().errorBack(res.data.m): getApp().text(res.data.m): reject(res.data);
           }
         }
       },

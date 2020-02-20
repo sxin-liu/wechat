@@ -13,3 +13,13 @@ export function getAddressErrorDemo(data)
 {
     return request.post('Address/error', data, true);
 }
+
+
+/*
+* 授权接口
+* */
+
+export function getAuthorizeApi()
+{
+    return request.post('', {}, false);
+}

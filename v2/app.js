@@ -1,4 +1,4 @@
-const { HTTP_REQUEST_URL, DEFAULT_PAGE, AUTHORIZE_PAGE } = require('./config.js');
+const { HTTP_REQUEST_URL, DEFAULT_PAGE_URL, AUTHORIZE_PAGE_URL } = require('./config.js');
 const baseUrl = HTTP_REQUEST_URL;
 App({
     onLaunch: function (e) {
@@ -12,14 +12,7 @@ App({
     // 小程序要打开的页面不存在时触发
     onPageNotFound(res) {
         wx.reLaunch({
-            url: DEFAULT_PAGE,
-        })
-    },
-
-    // 小程序打开不存在页面时触发
-    onPageNotFound() {
-        wx.reLaunch({
-            url: '/pages/home/index/index',
+            url: DEFAULT_PAGE_URL,
         })
     },
 
@@ -46,13 +39,13 @@ App({
             return false;
         }
 
-        if (DEFAULT_PAGE == '') {
-            console.error("请配置根目录下的config.js文件中的 'DEFAULT_PAGE (小程序打开的页面不存在时的链接)'");
+        if (DEFAULT_PAGE_URL == '') {
+            console.error("请配置根目录下的config.js文件中的 'DEFAULT_PAGE_URL (小程序打开的页面不存在时的链接)'");
             return false;
         }
 
-        if (AUTHORIZE_PAGE == '') {
-            console.error("请配置根目录下的config.js文件中的 'AUTHORIZE_PAGE (小程序授权页面链接)'");
+        if (AUTHORIZE_PAGE_URL == '') {
+            console.error("请配置根目录下的config.js文件中的 'AUTHORIZE_PAGE_URL (小程序授权页面链接)'");
             return false;
         }
 
@@ -95,41 +88,6 @@ App({
                 }
             }
         })
-    },
-
-    // 用户授权
-    getUserInfo(e, success) {
-        var { token } = this.globalData;
-        if (e.type == "getuserinfo") {
-            if (token) {
-                if (success) success();
-            } else {
-                var that = this;
-                var info = e.detail;
-                if (!info.iv) {
-                    that.error('授权失败');
-                } else {
-                    wx.login({
-                        success(res) {
-                            var code = res['code'];
-                            if (code) {
-                                var iv = info['iv'];
-                                var encryptedData = info['encryptedData'];
-
-                                // that.ajax(api.default.login, {
-                                //     code: code,
-                                //     iv: iv,
-                                //     encryptedData: encryptedData
-                                // }, function (res) {
-                                //     wx.setStorageSync('token', res.d.token);
-                                //     if (success) success(res);
-                                // });
-                            }
-                        }
-                    })
-                }
-            }
-        }
     },
 
     // 带成功图标Toast
@@ -243,13 +201,11 @@ App({
     },
 
     getOnload(_this) {
-        var {imageUrl, isIPhoneX, token, baseUrl} = this.globalData;
+        var {imageUrl, isIPhoneX} = this.globalData;
         // 适配iphoneX
         _this.setData({
             isIPhoneX: isIPhoneX,
             imageUrl: imageUrl,
-            isToken: token ? true : false,
-            baseUrl: baseUrl
         });
     },
 

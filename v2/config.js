@@ -2,7 +2,7 @@ module.exports = {
     // 请求域名 格式： https://您的域名
     HTTP_REQUEST_URL: '',
 
-    // Socket链接 暂不做配置 wss://
+    // Socket链接 暂不做配置
     WSS_SERVER_URL: '',
 
     /*
@@ -10,10 +10,10 @@ module.exports = {
     * */
 
     // 小程序打开的页面不存在时的链接
-    DEFAULT_PAGE: '/pages/home/index/index',
+    DEFAULT_PAGE_URL: '/pages/home/index/index',
 
-    // 小程序授权页面, 无授权页面则根 DEFAULT_PAGE 链接一样
-    AUTHORIZE_PAGE: '/pages/home/index/index',
+    // 小程序授权页面, 无授权页面则根 DEFAULT_PAGE_URL 链接一样
+    AUTHORIZE_PAGE_URL: '/pages/home/index/index',
 
     // 请求头
     HEADER: {
