@@ -56,7 +56,10 @@ App({
             return false;
         }
 
-        var that = this;
+        let token = wx.getStorageSync('token');
+        if (token) this.globalData.token = token;
+
+        let that = this;
 
         const updateManager = wx.getUpdateManager();
 
