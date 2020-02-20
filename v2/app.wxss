@@ -1,0 +1,40 @@
+@import './css/style.wxss';
+.container, page {
+    min-height: 1204rpx;
+    background-color: #fff;
+}
+
+page {
+    min-height: 100%;
+}
+
+view, text {
+    font-family: MicrosoftYaHei;
+    font-size: 30rpx;
+    color: #000000;
+}
+
+block, view, scroll-view, swiper, movable-view, icon, text, progress, button, checkbox, input, label, picker, picker-view, radio, slider, switch, textarea, navigator, audio, image, video, map, canvas, contact-button {
+    box-sizing: border-box;
+    font-family: MicrosoftYaHei;
+    background-color: transparent;
+}
+
+image {
+    background: transparent;
+}
+
+input, textarea {
+	padding: 0;
+}
+
+button::after {
+	border: none;
+}
+
+button {
+	padding: 0;
+	margin: 0;
+	line-height: 0;
+	background: none;
+}

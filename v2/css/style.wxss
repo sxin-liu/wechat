@@ -1,0 +1,116 @@
+.bold {
+    font-weight: bold;
+}
+
+.button-hover:active {
+    background-color: rgba(0, 0, 0, .1);
+    opacity: .7;
+}
+
+.button-hover50:active {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 50%;
+    opacity: .7;
+}
+
+.button-active:active {
+    transform: scale(.9);
+}
+
+.flex_group_1 {
+    min-width: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.flex_group_0 {
+    min-width: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.icon {
+    width: 40rpx;
+    height: 40rpx;
+    min-width: 40rpx;
+    min-height: 40rpx;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.items {
+	align-items: center;
+}
+
+.spaceb {
+	justify-content: space-between;
+}
+
+.flex_left {
+    justify-content: flex-start;
+}
+
+.right, flex_right {
+	justify-content: flex-end;
+}
+
+.center, flex_center {
+	justify-content: center;
+}
+
+/* 规定项目在必要的时候拆行或拆列 */
+.wrap {
+	flex-wrap: wrap;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.tcenter, .tc {
+	text-align: center;
+}
+
+.tr, .tright {
+	text-align: right;
+}
+
+.tl, .tleft {
+	text-align: left;
+}
+
+.nowrap {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.nowrap2 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.nowrap3 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,2 @@
+<!-- 适配iphoneX -->
+<view class="iPhoneX" wx:if="{{ isIPhoneX }}"></view>

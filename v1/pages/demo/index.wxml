@@ -1,0 +1,6 @@
+<view class="container">
+
+
+    <!-- 适配iphoneX -->
+    <view class="iPhoneX" wx:if="{{ iphoneX }}"></view>
+</view>
