@@ -1,4 +1,4 @@
-const { HTTP_REQUEST_URL, DEFAULT_PAGE } = require('./config.js');
+const { HTTP_REQUEST_URL, DEFAULT_PAGE, AUTHORIZE_PAGE } = require('./config.js');
 const baseUrl = HTTP_REQUEST_URL;
 App({
     onLaunch: function (e) {
@@ -40,6 +40,21 @@ App({
 
     //初始化
     init: function () {
+
+        if (HTTP_REQUEST_URL == '') {
+            console.error("请配置根目录下的config.js文件中的 'HTTP_REQUEST_URL'");
+            return false;
+        }
+
+        if (DEFAULT_PAGE == '') {
+            console.error("请配置根目录下的config.js文件中的 'DEFAULT_PAGE (小程序打开的页面不存在时的链接)'");
+            return false;
+        }
+
+        if (AUTHORIZE_PAGE == '') {
+            console.error("请配置根目录下的config.js文件中的 'AUTHORIZE_PAGE (小程序授权页面链接)'");
+            return false;
+        }
 
         var that = this;
 

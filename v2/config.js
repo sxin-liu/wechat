@@ -12,7 +12,7 @@ module.exports = {
     // 小程序打开的页面不存在时的链接
     DEFAULT_PAGE: '/pages/home/index/index',
 
-    // 小程序授权页面
+    // 小程序授权页面, 无授权页面则根 DEFAULT_PAGE 链接一样
     AUTHORIZE_PAGE: '/pages/home/index/index',
 
     // 请求头
