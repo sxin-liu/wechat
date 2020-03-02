@@ -54,11 +54,11 @@
 	justify-content: space-between;
 }
 
-.flex_left_just {
+.flex_start_just {
     justify-content: flex-start;
 }
 
-.right, .flex_right_just {
+.flex_end_just {
 	justify-content: flex-end;
 }
 
