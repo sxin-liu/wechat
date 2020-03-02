@@ -54,15 +54,23 @@
 	justify-content: space-between;
 }
 
-.flex_left {
+.flex_left_just {
     justify-content: flex-start;
 }
 
-.right, flex_right {
+.right, .flex_right_just {
 	justify-content: flex-end;
 }
 
-.center, flex_center {
+.flex_end_align {
+    align-items: flex-end;
+}
+
+.flex_start_align {
+    align-items: flex-start;
+}
+
+.center, .flex_center {
 	justify-content: center;
 }
 
