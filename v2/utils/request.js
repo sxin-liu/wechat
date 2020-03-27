@@ -38,7 +38,7 @@ export default function request(api, method, data, errorBack) {
               if (errorBack == true)
                   reject(res.data);
               else
-                  res.data.m? res.data.m.length < 6? getApp().errorBack(res.data.m): getApp().text(res.data.m): reject(res.data);
+                  res.data.m? res.data.m.length < 6? getApp().error(res.data.m): getApp().text(res.data.m): reject(res.data);
           }
         }
       },
