@@ -17,7 +17,7 @@ module.exports = {
 
     // 请求头
     HEADER: {
-        'content-type': 'application/x-www-form-urlencoded',
+        'content-type': 'application/json',
         'client': '1'
     },
     // Socket调试模式
