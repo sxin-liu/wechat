@@ -226,7 +226,7 @@ App({
             formData: formData,
             header: {
                 "Content-Type": "multipart/form-data",
-                token: wx.getStorageSync('token')
+                token: that.globalData.token
             },
             success: (resp) => {
                 success++;
