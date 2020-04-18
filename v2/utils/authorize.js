@@ -1,4 +1,4 @@
-import { getAuthorizeApi } from '../api/api';
+import { getAuth } from '../api/api';
 export function getAuthorize(e, success) {
     var { token } = getApp().globalData;
     return new Promise((reslove, reject) => {
@@ -15,18 +15,22 @@ export function getAuthorize(e, success) {
                         success(res) {
                             var code = res['code'];
                             if (code) {
-                                var iv = info['iv'];
-                                var encryptedData = info['encryptedData'];
-                                var params = {
-                                    code: code,
-                                    iv: iv,
-                                    encryptedData: encryptedData
-                                };
+                                wx.getUserInfo({
+                                    success: function (userData) {
+                                        var iv = userData['iv'];
+                                        var encryptedData = userData['encryptedData'];
+                                        var params = {
+                                            code: code,
+                                            iv: iv,
+                                            encryptedData: encryptedData
+                                        };
 
-                                getAuthorizeApi(params).then(res => {
-                                    wx.setStorageSync('token', res.d.token);
-                                    getApp().globalData.token = res.d.token;
-                                    reslove(res);
+                                        getAuth(params).then(res => {
+                                            wx.setStorageSync('token', res.d.token);
+                                            getApp().globalData.token = res.d.token;
+                                            reslove(res);
+                                        })
+                                    }
                                 })
                             }
                         }

@@ -2,6 +2,8 @@
 .container, page {
     min-height: 1204rpx;
     background-color: #fff;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 page {

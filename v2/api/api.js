@@ -19,7 +19,7 @@ export function getAddressErrorDemo(data)
 * 授权接口
 * */
 
-export function getAuthorizeApi()
+export function getAuth()
 {
-    return request.post('', {}, false);
+    return request.post('');
 }
