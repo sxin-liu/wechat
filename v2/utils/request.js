@@ -14,7 +14,7 @@ export default function request(api, method, data, errorBack) {
 
   return new Promise((reslove, reject) => {
     wx.request({
-      url: baseUrl + '/' + 'frontend/' +  api,
+      url: baseUrl + '/' +  api,
       method: method || 'POST',
       header: header,
       data: data,
