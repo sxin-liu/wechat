@@ -18,7 +18,7 @@ App({
 
     globalData: {
         baseUrl: baseUrl,
-        imageUrl: baseUrl + '/images/wechat',
+        imageUrl: baseUrl + '/images',
         share: {
             // 分享
             title: '',
