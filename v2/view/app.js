@@ -18,7 +18,7 @@ App({
 
     globalData: {
         baseUrl: baseUrl,
-        imageUrl: baseUrl + '/images',
+        imageUrl: baseUrl + '/wxapp/images',
         share: {
             // 分享
             title: '',
