@@ -13,8 +13,8 @@
     opacity: .7;
 }
 
-.button-active:active {
-    transform: scale(.9);
+.button-active:active, .button-scale:active {
+    transform: scale(.95);
 }
 
 .flex_group_1 {
