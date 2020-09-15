@@ -1,5 +1,6 @@
 const { HTTP_REQUEST_URL, DEFAULT_PAGE_URL, AUTHORIZE_PAGE_URL } = require('./config.js');
 const baseUrl = HTTP_REQUEST_URL;
+import { $h } from './utils/util';
 App({
     onLaunch: function (e) {
         this.init();
@@ -29,10 +30,30 @@ App({
         uploadImages: [],
         token: '',
         isIPhoneX: false, // 当前是否是iPhoneX
+        isSmallPhone: false, // 是不是小屏手机
     },
 
-    //初始化
     init: function () {
+        let that = this;
+
+        wx.getSystemInfo({
+            success: function (res) {
+                // 适配iPhone X
+                var modelstr = res.model;
+                if (modelstr.indexOf("iPhone X") != -1) {
+                    that.globalData.isIPhoneX = true;
+                } else {
+                    that.globalData.isIPhoneX = false;
+                }
+
+                console.log('手机机型为', res.model)
+
+                // 是不是小屏手机
+                let winH = $h.Mul($h.Div(750, res.windowWidth), res.windowHeight);
+                that.globalData.isSmallPhone = winH <= 1440? true: false;
+                console.log('屏幕高度为', winH)
+            }
+        })
 
         if (HTTP_REQUEST_URL == '') {
             console.error("请配置根目录下的config.js文件中的 'HTTP_REQUEST_URL'");
@@ -51,8 +72,6 @@ App({
 
         let token = wx.getStorageSync('token');
         if (token) this.globalData.token = token;
-
-        let that = this;
 
         const updateManager = wx.getUpdateManager();
 
@@ -75,18 +94,6 @@ App({
 
         updateManager.onUpdateFailed(function () {
             return that.text('新版本下载失败');
-        })
-
-        // 适配iPhone X
-        wx.getSystemInfo({
-            success: function (res) {
-                var modelstr = res.model;
-                if (modelstr.indexOf("iPhone X") != -1) {
-                    that.globalData.isIPhoneX = true;
-                } else {
-                    that.globalData.isIPhoneX = false;
-                }
-            }
         })
     },
 
