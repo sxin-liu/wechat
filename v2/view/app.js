@@ -178,6 +178,107 @@ App({
         wx.hideLoading();
     },
 
+    // tabbar跳转
+    switchTab(url) {
+        if (!url) {
+            wx.showModal({
+                title: '参数错误',
+                content: '没有传跳转的页面路径',
+                showCancel: false
+            });
+            return false;
+        }
+
+        wx.showLoading();
+
+        setTimeout(() => {
+            wx.hideLoading()
+        }, 1000)
+
+        wx.switchTab({
+            url: url || ''
+        })
+    },
+
+    // 关闭所有页面，打开到应用内的某个页面
+    reLaunch(url) {
+        if (!url) {
+            wx.showModal({
+                title: '参数错误',
+                content: '没有传跳转的页面路径',
+                showCancel: false
+            });
+            return false;
+        }
+
+        wx.showLoading();
+
+        setTimeout(() => {
+            wx.hideLoading()
+        }, 1000)
+
+        wx.reLaunch({
+            url: url || ''
+        })
+    },
+
+    // 关闭当前页面，跳转到应用内的某个页面
+    redirectTo(url) {
+        if (!url) {
+            wx.showModal({
+                title: '参数错误',
+                content: '没有传跳转的页面路径',
+                showCancel: false
+            });
+            return false;
+        }
+
+        wx.showLoading();
+
+        setTimeout(() => {
+            wx.hideLoading()
+        }, 1000)
+
+        wx.redirectTo({
+            url: url || ''
+        })
+    },
+
+    // 保留当前页面，跳转到应用内的某个页面
+    navigateTo(url) {
+        if (!url) {
+            wx.showModal({
+                title: '参数错误',
+                content: '没有传跳转的页面路径',
+                showCancel: false
+            });
+            return false;
+        }
+
+        wx.showLoading();
+
+        setTimeout(() => {
+            wx.hideLoading()
+        }, 1000)
+
+        wx.navigateTo({
+            url: url || ''
+        })
+    },
+
+    // 关闭当前页面，返回上一页面或多级页面
+    navigateBack(delta) {
+        wx.showLoading();
+
+        setTimeout(() => {
+            wx.hideLoading()
+        }, 1000)
+
+        wx.navigateBack({
+            delta: delta || 1
+        })
+    },
+
     //支付
     requestPayment: function (payargs, success, error) {
         wx.requestPayment({
