@@ -46,12 +46,38 @@ App({
                     that.globalData.isIPhoneX = false;
                 }
 
-                console.log('手机机型为', res.model)
-
                 // 是不是小屏手机
                 let winH = $h.Mul($h.Div(750, res.windowWidth), res.windowHeight);
                 that.globalData.isSmallPhone = winH <= 1440? true: false;
-                console.log('屏幕高度为', winH)
+
+                let setConsoleStyleFun = (data) => {
+                    let styleList = `
+                        font-size: 14px;
+                        color: #66addd; 
+                        letter-spacing: 1px; 
+                        margin: 2px; 
+                        padding: 5px 10px; 
+                        border-radius: 20px;
+                    `
+                    return styleList = styleList += data;
+                };
+
+                console.log(`%c
+                    机型: ${ res.model }
+                    屏幕高度: ${ winH }
+                    是否为小机型 ${ that.globalData.isSmallPhone }
+             %c*%c注意: ${ that.globalData.isSmallPhone? '当前机型为小机型，请注意页面适配': '当前机型为大机型，请注意小机型的适配' }
+                    baseUrl: ${ that.globalData.baseUrl }
+                    imageUrl: ${ that.globalData.imageUrl }
+                    token: ${ that.globalData.token || '暂无token' }
+                    isIPhoneX: ${ that.globalData.isIPhoneX }
+                    DEFAULT_PAGE_URL: ${ DEFAULT_PAGE_URL || '未配置 "小程序打开的页面不存在时的链接"' }
+                    AUTHORIZE_PAGE_URL: ${ AUTHORIZE_PAGE_URL || '未配置 "小程序授权页面"' }
+                `, setConsoleStyleFun(),
+                   setConsoleStyleFun('color: red'),
+                   setConsoleStyleFun()
+                )
+
             }
         })
 
