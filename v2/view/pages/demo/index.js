@@ -9,6 +9,7 @@ Page({
     },
 
     onShow: function () {
+        app.getOnShow(this);
         this.getDetail();
     },
 

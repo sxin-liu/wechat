@@ -335,12 +335,16 @@ App({
     },
 
     getOnload(_this) {
-        var {imageUrl, isIPhoneX} = this.globalData;
-        // 适配iphoneX
+        var { imageUrl, isIPhoneX } = this.globalData;
+
         _this.setData({
-            isIPhoneX: isIPhoneX,
-            imageUrl: imageUrl,
+            isIPhoneX: isIPhoneX, // 适配iphoneX
+            imageUrl: imageUrl, // 赋值imageUrl
         });
+    },
+
+    getOnShow() {
+
     },
 
     // 上传
