@@ -40,7 +40,13 @@ App({
             success: function (res) {
                 // 适配iPhone X
                 var modelstr = res.model;
-                if (modelstr.indexOf("iPhone X") != -1) {
+                if (
+                    modelstr.indexOf("iPhone X") != -1 ||
+                    modelstr.indexOf("iPhone 11") != -1 ||
+                    modelstr.indexOf("iPhone 12") != -1 ||
+                    modelstr.indexOf("iPhone 13") != -1 ||
+                    modelstr.indexOf("iPhone 14") != -1
+                ) {
                     that.globalData.isIPhoneX = true;
                 } else {
                     that.globalData.isIPhoneX = false;
