@@ -14,7 +14,7 @@ view, text {
     font-family: MicrosoftYaHei;
     font-size: 30rpx;
     color: #000000;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 block, view, scroll-view, swiper, movable-view, icon, text, progress, button, checkbox, input, label, picker, picker-view, radio, slider, switch, textarea, navigator, audio, image, video, map, canvas, contact-button {
