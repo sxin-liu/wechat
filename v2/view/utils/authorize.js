@@ -1,5 +1,5 @@
 import { getAuth } from '../api/api';
-export function getAuthorize(e, success) {
+export function getAuthorize(e) {
     var { token } = getApp().globalData;
     return new Promise((reslove, reject) => {
         if (e.type == "getuserinfo") {
