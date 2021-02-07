@@ -11,7 +11,7 @@ page {
 }
 
 view, text {
-    font-family: MicrosoftYaHei;
+    font-family: PingFangSC, MicrosoftYaHei, Arial, Helvetica, sans-serif;
     font-size: 30rpx;
     color: #000000;
     word-break: break-word;
@@ -19,7 +19,7 @@ view, text {
 
 block, view, scroll-view, swiper, movable-view, icon, text, progress, button, checkbox, input, label, picker, picker-view, radio, slider, switch, textarea, navigator, audio, image, video, map, canvas, contact-button {
     box-sizing: border-box;
-    font-family: MicrosoftYaHei;
+    font-family: PingFangSC, MicrosoftYaHei, Arial, Helvetica, sans-serif;
     background-color: transparent;
 }
 
