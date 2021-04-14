@@ -2,7 +2,7 @@ import { getAuth } from '../api/api';
 export function getAuthorize(e) {
     var { token } = getApp().globalData;
     return new Promise((reslove, reject) => {
-        if (token && token.indexOf('open_') == -1) {
+        if (token) {
             reslove();
         } else {
             if (wx.getUserProfile) {
@@ -32,7 +32,7 @@ export function getAuthorize(e) {
                             })
                         } else {
                             getApp().error('授权失败');
-                            reject('授权失败');
+                            // reject('授权失败');
                         }
                     }
                 })
